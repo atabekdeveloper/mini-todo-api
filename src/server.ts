@@ -14,8 +14,6 @@ app.use(
   cors({
     origin: process.env.CLIENT_URL || "*", // Allow frontend URL or all origins (*)
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    credentials: true, // Allow cookies (for authentication)
   })
 );
 app.use(errorHandler);
@@ -26,7 +24,7 @@ const port = process.env.PORT || 5000;
 
 connectDB().then(() => {
   app.listen(port, () => {
-    console.log(`✅ Server running on http://localhost:${5000}`);
+    console.log(`✅ Server running on http://localhost:${port}`);
   });
 
   app.get("/", (req, res) => {
